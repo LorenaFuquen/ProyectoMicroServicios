@@ -1,5 +1,7 @@
 package com.Productos.model;
 
+
+
 import jakarta.persistence.*;
 
 @Entity
@@ -8,12 +10,22 @@ public class Productos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idProducto")
     private Long idProducto;
 
+    @Column(name = "codProducto")
     private String codProducto;
+
+    @Column(name = "nombreProducto")
     private String nombreProducto;
+
+    @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "color")
     private String color;
+
+    @Column(name = "precio")
     private Double precio;
 
     // Etiqueta para marcar la relación de uno muchos para las llaves foraneas de las tablas
@@ -28,6 +40,10 @@ public class Productos {
     @ManyToOne
     @JoinColumn(name = "idEstado")
     private Estado estado;
+
+    @ManyToOne
+    @JoinColumn(name = "idTipo")
+    private TipoProducto tipoProducto;
 
     public Productos() {
     }
@@ -102,6 +118,14 @@ public class Productos {
     
     public void setEstado(Estado estado){
         this.estado = estado;
+    }
+
+    public TipoProducto getTipoProducto(){
+        return tipoProducto;
+    }
+    
+    public void setTipoProducto(TipoProducto tipoProducto){
+        this.tipoProducto = tipoProducto;
     }
     
 }
