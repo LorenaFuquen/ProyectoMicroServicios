@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
-@RequestMapping("api/buscarproductos")
+@RequestMapping("api/buscarProductos")
 
 public class ConsultaProductos {
 

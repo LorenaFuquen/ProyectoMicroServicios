@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
-@RequestMapping("api/buscarpornombre")
+@RequestMapping("api/buscarPorNombre")
 public class ConsultaPorNombre {
     
     @Autowired

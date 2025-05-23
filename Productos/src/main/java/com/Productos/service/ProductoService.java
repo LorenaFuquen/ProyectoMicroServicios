@@ -6,13 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Productos.model.Productos;
+import com.Productos.repository.CategoriaRepository;
+import com.Productos.repository.MarcaRepository;
+import com.Productos.repository.EstadoRepository;
 import com.Productos.repository.ProductoRepository;
+import com.Productos.repository.TipoProductoRepository;
 
 @Service
 public class ProductoService {
     
     @Autowired
     private ProductoRepository productoRepository;
+
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private MarcaRepository marcaRepository;
+
+    @Autowired
+    private EstadoRepository estadoRepository;
+
+    @Autowired
+    private TipoProductoRepository tipoProductoRepository;
 
     //Busquedas
 
