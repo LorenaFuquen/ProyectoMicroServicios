@@ -5,7 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Productos.dto.ProductosDTO;
+import com.Productos.model.Categoria;
+import com.Productos.model.Estado;
+import com.Productos.model.Marca;
 import com.Productos.model.Productos;
+import com.Productos.model.TipoProducto;
 import com.Productos.repository.CategoriaRepository;
 import com.Productos.repository.MarcaRepository;
 import com.Productos.repository.EstadoRepository;
@@ -48,7 +53,34 @@ public class ProductoService {
     }
 
     //Insertar producto
-    public Productos crearProducto(Productos productos){
+    public Productos crearProducto(ProductosDTO dto){
+
+        //Valida que exista la categoria registrada
+        Categoria categoria = categoriaRepository.findById(dto.getIdCategoria())
+        .orElseThrow(() -> new RuntimeException("Categoría con ID: " + dto.getIdCategoria() + " no existe"));
+
+        //Valida que exista la marca registrada
+        Marca marca = marcaRepository.findById(dto.getIdMarca())
+        .orElseThrow(() -> new RuntimeException("Marca con ID: " + dto.getIdMarca() + " no existe"));
+
+        //Valida que exista el estado registrada
+        Estado estado = estadoRepository.findById(dto.getIdEstado())
+        .orElseThrow(() -> new RuntimeException("Estado con ID: " + dto.getIdMarca() + " no existe"));
+
+        TipoProducto tipoProducto = tipoProductoRepository.findById(dto.getIdTipo())
+        .orElseThrow(() -> new RuntimeException("Tipo de producto con ID: " + dto.getIdTipo() + " no existe"));
+
+        Productos productos = new Productos();
+        productos.setCodProducto(dto.getCodProducto());
+        productos.setNombreProducto(dto.getNombreProducto());
+        productos.setDescripcion(dto.getDescripcion());
+        productos.setColor(dto.getColor());
+        productos.setPrecio(dto.getPrecio());
+        productos.setCategoria(categoria);
+        productos.setMarca(marca);
+        productos.setEstado(estado);
+        productos.setTipoProducto(tipoProducto);
+
         return productoRepository.save(productos);
     }
 

@@ -9,7 +9,7 @@ public class ProductosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProductosApplication.class, args);
 
-		System.out.println("Base de datos conectada");
+		System.out.println("Conexión establecida");
 	}
 
 }
