@@ -7,9 +7,6 @@ import jakarta.validation.constraints.NotNull;
 
 
 public class ProductosDTO{
-
-    @NotBlank(message = "El codigo del producto es obligatorio")
-    private String codProducto;
     
     @NotBlank(message = "El nombre del producto es obligatorio")
     private String nombreProducto;
@@ -36,16 +33,6 @@ public class ProductosDTO{
 
     public ProductosDTO(){
 
-    }
-
-   
-    public String getCodProducto(){
-        return codProducto;
-    }
-    
-    
-    public void setCodProducto(String codProducto){
-        this.codProducto = codProducto;
     }
 
     public String getNombreProducto(){

@@ -71,7 +71,7 @@ public class ProductoService {
         .orElseThrow(() -> new RuntimeException("Tipo de producto con ID: " + dto.getIdTipo() + " no existe"));
 
         Productos productos = new Productos();
-        productos.setCodProducto(dto.getCodProducto());
+
         productos.setNombreProducto(dto.getNombreProducto());
         productos.setDescripcion(dto.getDescripcion());
         productos.setColor(dto.getColor());
@@ -82,6 +82,47 @@ public class ProductoService {
         productos.setTipoProducto(tipoProducto);
 
         return productoRepository.save(productos);
+    }
+
+    //Actualizar producto
+    public Productos ActualizarProducto(Long idProducto, ProductosDTO dto ){
+        Productos productos = productoRepository.findById(idProducto).
+        orElseThrow(() -> new RuntimeException("Producto con ID " + idProducto + " no existe" ));
+
+         //Valida que exista la categoria registrada
+        Categoria categoria = categoriaRepository.findById(dto.getIdCategoria())
+        .orElseThrow(() -> new RuntimeException("Categoría con ID: " + dto.getIdCategoria() + " no existe"));
+
+        //Valida que exista la marca registrada
+        Marca marca = marcaRepository.findById(dto.getIdMarca())
+        .orElseThrow(() -> new RuntimeException("Marca con ID: " + dto.getIdMarca() + " no existe"));
+
+        //Valida que exista el estado registrada
+        Estado estado = estadoRepository.findById(dto.getIdEstado())
+        .orElseThrow(() -> new RuntimeException("Estado con ID: " + dto.getIdMarca() + " no existe"));
+
+        TipoProducto tipoProducto = tipoProductoRepository.findById(dto.getIdTipo())
+        .orElseThrow(() -> new RuntimeException("Tipo de producto con ID: " + dto.getIdTipo() + " no existe"));
+
+        productos.setNombreProducto(dto.getNombreProducto());
+        productos.setDescripcion(dto.getDescripcion());
+        productos.setColor(dto.getColor());
+        productos.setPrecio(dto.getPrecio());
+        productos.setCategoria(categoria);
+        productos.setMarca(marca);
+        productos.setEstado(estado);
+        productos.setTipoProducto(tipoProducto);
+
+        return productoRepository.save(productos); 
+
+    }
+
+    //Eliminar producto
+    public void EliminarProducto (Long idProducto){
+        Productos productos = productoRepository.findById(idProducto).
+        orElseThrow(() -> new RuntimeException("Producto con ID " + idProducto + " no existe" ));
+
+        productoRepository.delete(productos);
     }
 
 }
