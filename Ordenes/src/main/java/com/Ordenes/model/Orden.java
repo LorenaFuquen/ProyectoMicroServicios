@@ -25,11 +25,13 @@ public class Orden{
     @JoinColumn(name = "idMedioPago")
     private MedioPago medioPago;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPersona")
     private Persona persona;
 
     @ElementCollection
+    @CollectionTable(name = "OrdenProductos", joinColumns = @JoinColumn (name = "idOrden"))
+    @Column(name = "idProducto")
     private List<Long> idsPrductos;
 
     @Column(name = "fechaEntrega")
