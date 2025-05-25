@@ -1,4 +1,4 @@
-package com.Productos.Exception;
+package com.Ordenes.exception;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import com.Productos.util.MensajeError;
+import com.Ordenes.util.MensajeError;
 
 @RestControllerAdvice
 public class Excepciones {
@@ -32,7 +32,7 @@ public class Excepciones {
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<MensajeError> manejarRuntime(RuntimeException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                         .body(new MensajeError("Ocurrio un error en el sistema " + ex.getMessage()));
+                         .body(new MensajeError("Ocurrio un error en el sistema: " + ex.getMessage()));
 }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -46,3 +46,4 @@ public class Excepciones {
         return ResponseEntity.badRequest().body(errores);
     }
 }
+

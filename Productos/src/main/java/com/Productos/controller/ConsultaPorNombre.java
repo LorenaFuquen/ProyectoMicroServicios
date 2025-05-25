@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Productos.dto.MensajeError;
+import com.Productos.util.MensajeError;
 import com.Productos.model.Productos;
 import com.Productos.service.ProductoService;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -2,6 +2,7 @@ package com.Ordenes.services;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,21 +53,30 @@ public class OrdenService {
             }
         }
         
-        //Crear persona asociada a la orden
-        Persona persona = new Persona();
-
-        TipoDocumento tipoDocumento = tipoDocumentoRepository.findById(ordenDTO.getPersonas().getIdTipoDocumento())
-        .orElseThrow(() -> new RuntimeException("Tipo de documento con ID "+ordenDTO.getPersonas().getIdTipoDocumento()+ " no encontrado"));
+        //Valida que la persona exista 
         
-        persona.setTipoDocumento(tipoDocumento);
-        persona.setNumeroDocumento(ordenDTO.getPersonas().getNumeroDocumento());
-        persona.setNombrePersona(ordenDTO.getPersonas().getNombrePersona());
-        persona.setCorreo(ordenDTO.getPersonas().getCorreo());
-        persona.setTelefono(ordenDTO.getPersonas().getTelefono());
-        persona.setDireccion(ordenDTO.getPersonas().getDireccion());
+        Persona persona;
 
-        personaRepository.save(persona);
+        Optional<Persona> existePersona = personaRepository.findByNumeroDocumento(ordenDTO.getPersonas().getNumeroDocumento());
 
+        if(existePersona .isPresent()){
+            persona = existePersona.get();
+        } else {
+            //Crear nueva persona asociada a la orden
+            persona = new Persona();
+
+            TipoDocumento tipoDocumento = tipoDocumentoRepository.findById(ordenDTO.getPersonas().getIdTipoDocumento())
+            .orElseThrow(() -> new RuntimeException("Tipo de documento con ID "+ordenDTO.getPersonas().getIdTipoDocumento()+ " no encontrado"));
+            
+            persona.setTipoDocumento(tipoDocumento);
+            persona.setNumeroDocumento(ordenDTO.getPersonas().getNumeroDocumento());
+            persona.setNombrePersona(ordenDTO.getPersonas().getNombrePersona());
+            persona.setCorreo(ordenDTO.getPersonas().getCorreo());
+            persona.setTelefono(ordenDTO.getPersonas().getTelefono());
+            persona.setDireccion(ordenDTO.getPersonas().getDireccion());
+
+            personaRepository.save(persona);
+        }
 
         // Suma los precios de los productos
         double valorTotal = productos.stream().mapToDouble(ProductosDTO::getPrecio).sum();
@@ -87,5 +97,20 @@ public class OrdenService {
         
         return ordenRepository.save(orden);
 
+    }
+
+    //Buscar todas las ordenes
+    public List<Orden> BuscarTodas(){
+        return ordenRepository.findAll();
+    }
+
+    //Buscar ordenes por ID
+    public Orden buscarPorId(Long idOrden){
+        return ordenRepository.findById(idOrden).orElse(null);
+    }
+
+    //Buscar ordenes por numero de documento de la persona
+    public List<Orden> buscarPorNumeroDocumento(String numeroDocumento){
+        return ordenRepository.buscarPorNumeroDocumento(numeroDocumento);
     }
 }

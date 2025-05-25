@@ -8,11 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Productos.dto.*;
 import com.Productos.model.Productos;
 import com.Productos.service.*;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import com.Productos.util.*;
 
 
 @RestController

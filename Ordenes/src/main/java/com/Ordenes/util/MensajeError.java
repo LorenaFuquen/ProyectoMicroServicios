@@ -1,4 +1,4 @@
-package com.Productos.dto;
+package com.Ordenes.util;
 
 public class MensajeError {
 

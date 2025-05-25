@@ -1,4 +1,4 @@
-package com.Productos.controller;
+package com.Ordenes.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,35 +8,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Productos.util.MensajeError;
-import com.Productos.model.Productos;
-import com.Productos.service.ProductoService;
+import com.Ordenes.model.Orden;
+import com.Ordenes.services.OrdenService;
+import com.Ordenes.util.MensajeError;
 
 @RestController
-@RequestMapping("productos/buscarPorId/{idProducto}")
-public class ConsultarPorId {
-
+@RequestMapping("ordenes/buscarOrdenPorId/{idOrden}")
+public class ConsultaOrdenesPorId {
+    
     @Autowired
-    private ProductoService productoService;
+    private OrdenService ordenService;
 
 
     @GetMapping
-    public ResponseEntity<?> buscarPorId(@PathVariable Long idProducto){
+    public ResponseEntity<?> buscarOrdenPorId(@PathVariable Long idOrden){
 
-        Productos productos = productoService.buscarPorID(idProducto);
+        Orden orden = ordenService.buscarPorId(idOrden);
 
-        if(productos != null) {
-            return ResponseEntity.ok(productos);
+        if(orden != null) {
+            return ResponseEntity.ok(orden);
         } else{
-            String mensaje = "Producto con ID " + idProducto + " no existe";
+            String mensaje = "Orden No. " + idOrden + " no existe";
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body(new MensajeError(mensaje));
         }
         
     }
-        
-
 }
-
-    
-
