@@ -2,6 +2,7 @@ package com.Ordenes.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -27,6 +28,9 @@ public class Orden{
     @ManyToOne
     @JoinColumn(name = "idPersona")
     private Persona persona;
+
+    @ElementCollection
+    private List<Long> idsPrductos;
 
     @Column(name = "fechaEntrega")
     private LocalDate fechaEntrega;
@@ -68,6 +72,14 @@ public class Orden{
 
     public void setPersona(Persona persona){
         this.persona = persona;
+    }
+
+    public List<Long> getIdsProductos(){
+        return idsPrductos;
+    }
+
+    public void setIdsProductos(List<Long> idsProductos){
+        this.idsPrductos = idsProductos;
     }
 
     public LocalDate getFechaEntrega(){
