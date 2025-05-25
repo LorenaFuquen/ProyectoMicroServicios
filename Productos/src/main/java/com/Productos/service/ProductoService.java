@@ -1,6 +1,7 @@
 package com.Productos.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,7 +66,7 @@ public class ProductoService {
 
         //Valida que exista el estado registrada
         Estado estado = estadoRepository.findById(dto.getIdEstado())
-        .orElseThrow(() -> new RuntimeException("Estado con ID: " + dto.getIdMarca() + " no existe"));
+        .orElseThrow(() -> new RuntimeException("Estado con ID: " + dto.getIdEstado() + " no existe"));
 
         TipoProducto tipoProducto = tipoProductoRepository.findById(dto.getIdTipo())
         .orElseThrow(() -> new RuntimeException("Tipo de producto con ID: " + dto.getIdTipo() + " no existe"));
@@ -99,7 +100,7 @@ public class ProductoService {
 
         //Valida que exista el estado registrada
         Estado estado = estadoRepository.findById(dto.getIdEstado())
-        .orElseThrow(() -> new RuntimeException("Estado con ID: " + dto.getIdMarca() + " no existe"));
+        .orElseThrow(() -> new RuntimeException("Estado con ID: " + dto.getIdEstado() + " no existe"));
 
         TipoProducto tipoProducto = tipoProductoRepository.findById(dto.getIdTipo())
         .orElseThrow(() -> new RuntimeException("Tipo de producto con ID: " + dto.getIdTipo() + " no existe"));
@@ -124,5 +125,29 @@ public class ProductoService {
 
         productoRepository.delete(productos);
     }
+
+    //Obtener productos por id
+
+    public List<ProductosDTO> obtenerIdProductos(List<Long> idProductos){
+        List<Productos> productos = productoRepository.findAllById(idProductos);
+        return productos.stream().map(this::convertirADTO).collect(Collectors.toList());
+
+    }
+
+    private ProductosDTO convertirADTO(Productos productos){
+        ProductosDTO dto = new ProductosDTO();
+        dto.setIdProducto(productos.getIdProducto());
+        dto.setNombreProducto(productos.getNombreProducto());
+        dto.setPrecio(productos.getPrecio());
+
+        //Se extrae la información del estado
+        if (productos.getEstado() != null){
+            dto.setIdEstado(productos.getEstado().getIdEstado());
+            dto.setNombreEstado(productos.getEstado().getNombreEstado());
+        }
+        
+        return dto;
+    }
+
 
 }

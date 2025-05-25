@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("api/actualizarProducto/{idProducto}")
+@RequestMapping("productos/actualizarProducto/{idProducto}")
 public class ActualizarProducto {
     
     @Autowired

@@ -13,7 +13,7 @@ import com.Productos.model.Productos;
 import com.Productos.service.ProductoService;
 
 @RestController
-@RequestMapping("api/buscarPorId/{idProducto}")
+@RequestMapping("productos/buscarPorId/{idProducto}")
 public class ConsultarPorId {
 
     @Autowired
