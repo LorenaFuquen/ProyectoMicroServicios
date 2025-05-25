@@ -32,7 +32,7 @@ public class Excepciones {
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<MensajeError> manejarRuntime(RuntimeException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                         .body(new MensajeError("Ocurrio un error en el sistema" + ex.getMessage()));
+                         .body(new MensajeError("Ocurrio un error en el sistema " + ex.getMessage()));
 }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

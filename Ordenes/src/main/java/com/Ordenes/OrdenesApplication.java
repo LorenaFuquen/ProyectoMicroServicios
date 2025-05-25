@@ -3,7 +3,7 @@ package com.Ordenes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.Ordenes")
 public class OrdenesApplication {
 
 	public static void main(String[] args) {
