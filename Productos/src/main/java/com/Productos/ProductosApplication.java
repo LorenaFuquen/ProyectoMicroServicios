@@ -9,7 +9,7 @@ public class ProductosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProductosApplication.class, args);
 
-		System.out.println("Conexión establecida");
+		System.out.println("Conexión a servicio de productos establecida");
 	}
 
 }
