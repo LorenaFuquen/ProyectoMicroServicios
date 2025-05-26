@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "b2d66a1d-97c2-4d1a-9826-7e86116752d1",
+		"name": "Proyecto_MS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45055026",
+		"_collection_link": "https://lorenafuquen-571402.postman.co/workspace/Lorena-Fuquen's-Workspace~74680ac6-33af-4974-8756-2be88f11102f/collection/45055026-b2d66a1d-97c2-4d1a-9826-7e86116752d1?action=share&source=collection_link&creator=45055026"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Consulta por ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/productos/buscarPorId/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"productos",
+								"buscarPorId",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/productos/buscarProductos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"productos",
+								"buscarProductos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta por nombre",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/productos/buscarPorNombre?nombreProducto=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"productos",
+								"buscarPorNombre"
+							],
+							"query": [
+								{
+									"key": "nombreProducto",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear producto",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombreProducto\":\"Televisor 55 pulgadas\",\n    \"descripcion\":\"prueba\",\n    \"color\":\"Negro\",\n    \"precio\":\"280000\",\n    \"idCategoria\":\"1\",\n    \"idMarca\": \"3\",\n    \"idEstado\":\"1\",\n    \"idTipo\":\"2\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/productos/crearProducto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"productos",
+								"crearProducto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar producto",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombreProducto\":\"prueba actualizacion\",\n    \"descripcion\":\"prueba\",\n    \"color\":\"Azul\",\n    \"precio\":\"150000.00\",\n    \"idCategoria\":\"1\",\n    \"idMarca\":\"2\",\n    \"idEstado\":\"2\",\n    \"idTipo\":\"1\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/productos/actualizarProducto/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"productos",
+								"actualizarProducto",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar producto",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/productos/eliminarProducto/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"productos",
+								"eliminarProducto",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener ids productos",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[14,15]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/productos/obtenerIdsProductos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"productos",
+								"obtenerIdsProductos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ordenes",
+			"item": [
+				{
+					"name": "Crear orden",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idMedioPago\":\"2\",\n\n    \"personas\": {\n        \"idTipoDocumento\":\"1\",\n        \"numeroDocumento\":\"1010123410\",\n        \"nombrePersona\":\"Lina Maria Jimenez Lopez\",\n        \"correo\":\"prueba3@prueba.com\",\n        \"telefono\":\"3153350338\",\n        \"direccion\":\"Cll 72 # 7 - 45\"\n    },\n\n    \"idsProductos\":[14],\n    \"fechaEntrega\":\"2025-05-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ordenes/crearOrden",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ordenes",
+								"crearOrden"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar orden",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idMedioPago\":\"3\",\n    \"reemplazarProductos\":false,\n\n    \"personas\": {\n        \"idTipoDocumento\":\"1\",\n        \"numeroDocumento\":\"1010123456\",\n        \"nombrePersona\":\"Juan Carlos Ramirez Cardenas\",\n        \"correo\":\"prueba@prueba.com\",\n        \"telefono\":\"312453533\",\n        \"direccion\":\"Diag 123 # 12 - 76\"\n    },\n\n    \"idsProductos\":[14,15,16],\n    \"fechaEntrega\":\"2025-06-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ordenes/actualizarOrdenes/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ordenes",
+								"actualizarOrdenes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar ordenes",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ordenes/buscarOrdenes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ordenes",
+								"buscarOrdenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta ordenes por id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ordenes/buscarOrdenPorId/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ordenes",
+								"buscarOrdenPorId",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta por numero documento",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ordenes/buscarPorNumeroDocumento?numeroDocumento=1010123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ordenes",
+								"buscarPorNumeroDocumento"
+							],
+							"query": [
+								{
+									"key": "numeroDocumento",
+									"value": "1010123456"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar orden",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ordenes/eliminarOrden/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ordenes",
+								"eliminarOrden",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

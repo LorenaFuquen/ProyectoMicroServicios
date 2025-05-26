@@ -1,11 +1,19 @@
 package com.Ordenes.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class PersonasDTO {
 
     private Long idPersona;
+
+    @NotNull(message = "El ID de la categoria es obligatoria")
     private Long idTipoDocumento;
+
+    @NotBlank(message = "El nombre de la persona es obligatorio")
     private String numeroDocumento;
+    
+    @NotBlank(message = "El nombre de la persona es obligatorio")
     private String nombrePersona;
     private String correo;
     private String telefono;

@@ -3,11 +3,16 @@ package com.Ordenes.dto;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.validation.constraints.NotNull;
+
 
 public class OrdenDTO {
 
     private Long idOrden;
+
+    @NotNull(message = "El ID del medio de pago es obligatorio")
     private Long idMedioPago;
+
     private PersonasDTO personas;
     private List<Long> idsProductos;
     private LocalDate fechaEntrega;

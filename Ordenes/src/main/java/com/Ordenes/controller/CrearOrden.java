@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Ordenes.dto.OrdenDTO;
 import com.Ordenes.model.Orden;
 import com.Ordenes.services.OrdenService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -21,7 +24,7 @@ public class CrearOrden {
     private OrdenService ordenService;
 
     @PostMapping
-    public ResponseEntity<Orden> crearNuevaOrden(@RequestBody OrdenDTO ordenDTO){
+    public ResponseEntity<Orden> crearNuevaOrden(@RequestBody @Valid OrdenDTO ordenDTO){
         Orden orden = ordenService.CrearOrden(ordenDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(orden);
 
