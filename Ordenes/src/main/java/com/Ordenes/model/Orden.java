@@ -21,11 +21,11 @@ public class Orden{
     @Column(name = "fechaCreacion")
     private LocalDateTime fechaCreacion;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "idMedioPago")
     private MedioPago medioPago;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "idPersona")
     private Persona persona;
 

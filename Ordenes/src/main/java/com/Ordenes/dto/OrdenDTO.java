@@ -9,8 +9,9 @@ public class OrdenDTO {
     private Long idOrden;
     private Long idMedioPago;
     private PersonasDTO personas;
-    private List<Long> idsPrductos;
+    private List<Long> idsProductos;
     private LocalDate fechaEntrega;
+    private boolean reemplazarProductos;
 
     public OrdenDTO(){
 
@@ -41,11 +42,11 @@ public class OrdenDTO {
     }
 
     public List<Long> getIdsProductos(){
-        return idsPrductos;
+        return idsProductos;
     }
 
     public void setIdsProductos(List<Long> idsProductos){
-        this.idsPrductos = idsProductos;
+        this.idsProductos = idsProductos;
     }
 
     public LocalDate getFechaEntrega(){
@@ -54,6 +55,14 @@ public class OrdenDTO {
 
     public void setFechaEntrega(LocalDate fechaEntrega){
         this.fechaEntrega = fechaEntrega;
+    }
+
+    public boolean isReemplazarProductos() {
+        return reemplazarProductos;
+    }
+
+    public void setReemplazarProductos(boolean reemplazarProductos) {
+        this.reemplazarProductos = reemplazarProductos;
     }
     
 }
