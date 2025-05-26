@@ -38,7 +38,7 @@ CREATE TABLE `Categoria` (
 
 INSERT INTO `Categoria` (`idCategoria`, `nombreCategoria`) VALUES
 (1, 'Electrodomesticos'),
-(2, 'Electrodomesticos');
+(2, 'Computación y celulares');
 
 -- --------------------------------------------------------
 
@@ -119,10 +119,9 @@ INSERT INTO `TipoProducto` (`idTipo`, `nombreTipo`) VALUES
 (2, 'Televisores'),
 (3, 'Sonido'),
 (4, 'Neveras'),
-(5, 'Lavadoras'),
-(6, 'Televisores'),
-(7, 'Sonido'),
-(8, 'Neveras');
+(5, 'Portatil'),
+(6, 'PC Escritorio');
+
 
 --
 -- Indexes for dumped tables
