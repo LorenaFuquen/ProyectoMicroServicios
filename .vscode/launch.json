@@ -29,6 +29,17 @@
             "mainClass": "com.EurekaServer.EurekaServerApplication",
             "projectName": "EurekaServer",
             "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51477 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=EurekaServer"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayServiceApplication<GatewayService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.GatewayService.GatewayServiceApplication",
+            "projectName": "GatewayService",
+            "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
     ]
