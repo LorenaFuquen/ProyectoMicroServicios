@@ -10,6 +10,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Ordenes.client.ProductoClient;
 import com.Ordenes.dto.OrdenDTO;
 import com.Ordenes.dto.ProductosDTO;
 import com.Ordenes.model.MedioPago;
@@ -35,13 +36,17 @@ public class OrdenService {
 
     // Llama al microservicio de productos
     @Autowired
-    private ProductoService productoService;
+    private ProductoClient productoClient;
+
+    public List<ProductosDTO> obtenerIdsProductos(List<Long> idsProductos) {
+        return productoClient.obtenerIdsProductos(idsProductos);
+    }
     
     public Orden CrearOrden(OrdenDTO ordenDTO){
 
         //Informacion obtenida desde el servicio de productos
         List<Long> idsConsultados = ordenDTO.getIdsProductos();
-        List<ProductosDTO> productos = productoService.obtenerIdsProductos(ordenDTO.getIdsProductos());
+        List<ProductosDTO> productos = obtenerIdsProductos(ordenDTO.getIdsProductos());
 
         //Valida que el producto ingresado exista
         if(productos.size() != idsConsultados.size()){
@@ -164,7 +169,7 @@ public class OrdenService {
             productosFinales = ordenDTO.getIdsProductos();
         }else{
 
-            List<Long> productosActuales = ordenDTO.getIdsProductos();
+            List<Long> productosActuales = orden.getIdsProductos();
             if(productosActuales == null){
                 productosActuales = new ArrayList<>();
             }
@@ -173,7 +178,7 @@ public class OrdenService {
             productosFinales = new ArrayList<>(productosAñadidos);
             }
         
-        List<ProductosDTO> productosValidados = productoService.obtenerIdsProductos(productosFinales);
+        List<ProductosDTO> productosValidados = obtenerIdsProductos(productosFinales);
 
         if(productosValidados.size() != productosFinales.size()){
             throw new RuntimeException("Uno o más productos no existen o están inactivos");
