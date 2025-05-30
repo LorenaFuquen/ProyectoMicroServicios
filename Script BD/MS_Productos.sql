@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: May 24, 2025 at 05:35 AM
+-- Host: localhost:3306
+-- Generation Time: May 30, 2025 at 04:04 AM
 -- Server version: 8.0.40
 -- PHP Version: 8.3.14
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `MS_Productos`
 --
+CREATE DATABASE IF NOT EXISTS `MS_Productos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `MS_Productos`;
 
 -- --------------------------------------------------------
 
@@ -99,6 +101,17 @@ CREATE TABLE `Producto` (
   `idTipo` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `Producto`
+--
+
+INSERT INTO `Producto` (`idProducto`, `nombreProducto`, `descripcion`, `idCategoria`, `idMarca`, `color`, `precio`, `idEstado`, `idTipo`) VALUES
+(14, 'Sanduchera grande', 'prueba', 1, 5, 'Blanco', 280000.00, 1, 2),
+(15, 'Televisor 55 pulgadas', 'prueba', 1, 3, 'Negro', 280000.00, 1, 2),
+(16, 'Equipo de sonido con 4 parlantes', 'prueba', 1, 3, 'Negro', 2500000.00, 1, 2),
+(17, 'Parlante', 'prueba', 1, 3, 'Negro', 1800000.00, 1, 1),
+(18, 'Televisor 55 pulgadas', 'prueba', 1, 3, 'Negro', 280000.00, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -120,8 +133,8 @@ INSERT INTO `TipoProducto` (`idTipo`, `nombreTipo`) VALUES
 (3, 'Sonido'),
 (4, 'Neveras'),
 (5, 'Portatil'),
-(6, 'PC Escritorio');
-
+(6, 'PC Escritorio'),
+(7, 'Sonido');
 
 --
 -- Indexes for dumped tables
@@ -187,7 +200,7 @@ ALTER TABLE `Marca`
 -- AUTO_INCREMENT for table `Producto`
 --
 ALTER TABLE `Producto`
-  MODIFY `idProducto` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idProducto` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `TipoProducto`

@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: May 26, 2025 at 03:05 AM
+-- Host: localhost:3306
+-- Generation Time: May 30, 2025 at 04:01 AM
 -- Server version: 8.0.40
 -- PHP Version: 8.3.14
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `MS_Ordenes`
 --
+CREATE DATABASE IF NOT EXISTS `MS_Ordenes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `MS_Ordenes`;
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,14 @@ CREATE TABLE `Orden` (
 
 INSERT INTO `Orden` (`idOrden`, `fechaCreacion`, `idMedioPago`, `IdPersona`, `fechaEntrega`, `valorTotal`) VALUES
 (4, '2025-05-25 19:07:22', 1, 3, '2025-05-28', 280000.00),
-(6, '2025-05-26 02:57:07', 2, 4, '2025-05-31', 4300000.00);
+(6, '2025-05-26 02:57:07', 2, 4, '2025-05-31', 4300000.00),
+(7, '2025-05-26 03:27:01', 2, 4, '2025-05-31', 4300000.00),
+(8, '2025-05-26 03:29:32', 2, 4, '2025-05-31', 280000.00),
+(9, '2025-05-26 03:30:13', 2, 4, '2025-05-31', 280000.00),
+(10, '2025-05-29 04:38:42', 2, 4, '2025-05-31', 280000.00),
+(11, '2025-05-29 04:39:03', 2, 4, '2025-05-31', 280000.00),
+(12, '2025-05-29 04:40:30', 2, 4, '2025-05-31', 280000.00),
+(13, '2025-05-30 03:50:34', 2, 4, '2025-05-31', 280000.00);
 
 -- --------------------------------------------------------
 
@@ -82,7 +91,15 @@ CREATE TABLE `OrdenProductos` (
 INSERT INTO `OrdenProductos` (`idOrden`, `idProducto`) VALUES
 (4, 15),
 (6, 16),
-(6, 17);
+(6, 17),
+(7, 16),
+(7, 17),
+(8, 14),
+(9, 14),
+(10, 14),
+(11, 14),
+(12, 14),
+(13, 14);
 
 -- --------------------------------------------------------
 
@@ -182,7 +199,7 @@ ALTER TABLE `MedioPago`
 -- AUTO_INCREMENT for table `Orden`
 --
 ALTER TABLE `Orden`
-  MODIFY `idOrden` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idOrden` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `Persona`

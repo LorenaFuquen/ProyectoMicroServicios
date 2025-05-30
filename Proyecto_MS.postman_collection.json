@@ -19,16 +19,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/productos/buscarPorId/13",
+							"raw": "http://localhost:9090/productos/buscarPorId/16",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "9090",
 							"path": [
 								"productos",
 								"buscarPorId",
-								"13"
+								"16"
 							]
 						}
 					},
@@ -43,12 +43,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/productos/buscarProductos",
+							"raw": "http://localhost:9090/productos/buscarProductos",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "9090",
 							"path": [
 								"productos",
 								"buscarProductos"
@@ -66,12 +66,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/productos/buscarPorNombre?nombreProducto=2",
+							"raw": "http://localhost:9090/productos/buscarPorNombre?nombreProducto=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "9090",
 							"path": [
 								"productos",
 								"buscarPorNombre"
@@ -96,7 +96,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombreProducto\":\"Televisor 55 pulgadas\",\n    \"descripcion\":\"prueba\",\n    \"color\":\"Negro\",\n    \"precio\":\"280000\",\n    \"idCategoria\":\"1\",\n    \"idMarca\": \"3\",\n    \"idEstado\":\"1\",\n    \"idTipo\":\"2\"\n\n}",
+							"raw": "{\n    \"nombreProducto\":\"Parlante\",\n    \"descripcion\":\"prueba\",\n    \"color\":\"Negro\",\n    \"precio\":\"1800000\",\n    \"idCategoria\":\"1\",\n    \"idMarca\": \"3\",\n    \"idEstado\":\"1\",\n    \"idTipo\":\"1\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -104,12 +104,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/productos/crearProducto",
+							"raw": "http://localhost:9090/productos/crearProducto",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "9090",
 							"path": [
 								"productos",
 								"crearProducto"
@@ -136,12 +136,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/productos/actualizarProducto/13",
+							"raw": "http://localhost:9090/productos/actualizarProducto/13",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "9090",
 							"path": [
 								"productos",
 								"actualizarProducto",
@@ -160,12 +160,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/productos/eliminarProducto/11",
+							"raw": "http://localhost:9090/productos/eliminarProducto/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "9090",
 							"path": [
 								"productos",
 								"eliminarProducto",
@@ -193,12 +193,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/productos/obtenerIdsProductos",
+							"raw": "http://localhost:9090/productos/obtenerIdsProductos",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "9090",
 							"path": [
 								"productos",
 								"obtenerIdsProductos"
@@ -230,12 +230,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/ordenes/crearOrden",
+							"raw": "http://localhost:8090/ordenes/crearOrden",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8090",
 							"path": [
 								"ordenes",
 								"crearOrden"
@@ -262,12 +262,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/ordenes/actualizarOrdenes/5",
+							"raw": "http://localhost:8090/ordenes/actualizarOrdenes/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8090",
 							"path": [
 								"ordenes",
 								"actualizarOrdenes",
@@ -286,12 +286,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/ordenes/buscarOrdenes",
+							"raw": "http://localhost:8090/ordenes/buscarOrdenes",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8090",
 							"path": [
 								"ordenes",
 								"buscarOrdenes"
@@ -309,16 +309,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/ordenes/buscarOrdenPorId/2",
+							"raw": "http://localhost:8090/ordenes/buscarOrdenPorId/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8090",
 							"path": [
 								"ordenes",
 								"buscarOrdenPorId",
-								"2"
+								"5"
 							]
 						}
 					},
@@ -333,12 +333,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/ordenes/buscarPorNumeroDocumento?numeroDocumento=1010123456",
+							"raw": "http://localhost:8090/ordenes/buscarPorNumeroDocumento?numeroDocumento=1010123456",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8090",
 							"path": [
 								"ordenes",
 								"buscarPorNumeroDocumento"
@@ -362,16 +362,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/ordenes/eliminarOrden/3",
+							"raw": "http://localhost:8090/ordenes/eliminarOrden/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8090",
 							"path": [
 								"ordenes",
 								"eliminarOrden",
-								"3"
+								"5"
 							]
 						}
 					},
