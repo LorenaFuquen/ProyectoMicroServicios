@@ -35,6 +35,8 @@ public class ProductosDTO{
     @NotNull(message = "El ID del tipo de producto es obligatoria")
     private Long idTipo;
 
+    private String imageBase64;
+
     public ProductosDTO(){
 
     }
@@ -118,6 +120,14 @@ public class ProductosDTO{
 
     public void setIdTipo(Long idTipo){
         this.idTipo = idTipo;
+    }
+
+    public String getImageBase64(){
+        return imageBase64;
+    }
+
+    public void setImageBase64(String imageBase64){
+        this.imageBase64 = imageBase64;
     }
 
 }

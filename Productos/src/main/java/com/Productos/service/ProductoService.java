@@ -81,6 +81,7 @@ public class ProductoService {
         productos.setMarca(marca);
         productos.setEstado(estado);
         productos.setTipoProducto(tipoProducto);
+        productos.setImageBase64(dto.getImageBase64());
 
         return productoRepository.save(productos);
     }
@@ -113,6 +114,7 @@ public class ProductoService {
         productos.setMarca(marca);
         productos.setEstado(estado);
         productos.setTipoProducto(tipoProducto);
+        productos.setImageBase64(dto.getImageBase64());
 
         return productoRepository.save(productos); 
 
@@ -139,6 +141,7 @@ public class ProductoService {
         dto.setIdProducto(productos.getIdProducto());
         dto.setNombreProducto(productos.getNombreProducto());
         dto.setPrecio(productos.getPrecio());
+        dto.setImageBase64(productos.getImageBase64());
 
         //Se extrae la información del estado
         if (productos.getEstado() != null){

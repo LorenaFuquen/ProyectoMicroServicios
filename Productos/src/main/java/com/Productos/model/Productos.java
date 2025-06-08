@@ -42,6 +42,10 @@ public class Productos {
     @JoinColumn(name = "idTipo")
     private TipoProducto tipoProducto;
 
+    @Lob
+    @Column(name = "imageBase64", columnDefinition = "LONGTEXT")
+    private String imageBase64;
+
     public Productos() {
     }
 
@@ -115,6 +119,14 @@ public class Productos {
     
     public void setTipoProducto(TipoProducto tipoProducto){
         this.tipoProducto = tipoProducto;
+    }
+
+    public String getImageBase64(){
+        return imageBase64;
+    }
+
+    public void setImageBase64(String imageBase64){
+        this.imageBase64 = imageBase64;
     }
     
 }
