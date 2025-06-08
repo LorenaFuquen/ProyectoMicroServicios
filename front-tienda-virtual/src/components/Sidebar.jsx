@@ -18,7 +18,8 @@ const Sidebar = () =>{
             <FaBars />
             </div>
 
-            
+            {isOpen && <h2 className="titulo">Tienda virtual</h2>}
+
             <ul className="menu-tienda">
                 <li title= {!isOpen ? "Inicio" : ""}>
                     <Link to = "/">
