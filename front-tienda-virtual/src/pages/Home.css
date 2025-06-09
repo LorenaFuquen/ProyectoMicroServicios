@@ -1,11 +1,8 @@
-/* src/pages/Home.css */
-
 .home-container {
   display: flex;
 }
 
 .main-content {
-  padding: 20px;
   width: 100%;
 }
 

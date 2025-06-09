@@ -15,9 +15,10 @@
 }
 
 .imagen-producto {
-  width: 100%;
+  width: 170px;
   height: 180px;
   object-fit: cover;
+  margin: 5px 55px 0px;
 }
 
 .info-producto {

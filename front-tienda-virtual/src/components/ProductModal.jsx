@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProductModal.css";
+import { FaEye } from "react-icons/fa";
 
 const ProductModal = ({producto, onClose}) => {
     if(!producto) return null;
@@ -11,7 +12,7 @@ const ProductModal = ({producto, onClose}) => {
                 <p>Precio: ${producto.precio}</p>
                 <p>Estado: {producto.nombreEstado}</p>
                 <button onClick={onClose} className="boton-cerrar">Cerrar</button>
-
+                
             </div>
 
         </div>

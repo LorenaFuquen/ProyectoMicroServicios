@@ -6,7 +6,9 @@ function ProductCard({ producto, onVerDetalle, onAgregarCarrito}){
 
     return(
         <div className="card-producto">
-            <img src={producto.imagerBase64} alt={producto.nombreProducto} className="imagen-producto"/>
+            <img src={producto.imageBase64} 
+                alt={producto.nombreProducto} 
+                className="imagen-producto"/>
             <div className="info-producto">
                 <h3 className="nombre-producto">{producto.nombreProducto}</h3>
                 <p className="precio-producto">${producto.precio}</p>
