@@ -1,26 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './ProductList.css';
+import API from "../api/api";
+import ProductCard from "./ProductCard";
+import ProductModal from "./ProductModal";
 
-const ProductList = () => {
+function ProductList(){
+    const [productos, setProductos] = useState([]);
+    const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
-    const productos = [
-        {id: 1, nombreProducto: 'Producto 1', precio: 1500000},
-        {id: 2, nombreProducto: 'Producto 2', precio: 500000}
-    ];
+    useEffect(() => {
+        API.get("/productos/buscarProductos")
+        .then((response) => setProductos(response.data))
+        .catch((error) => console.error("Error al cargar los productos ", error))
+    },[]);
 
-    return (
-        <div className= "product-list">
-            {productos.map((producto) => (
-                <div key={producto.id} className= "product-card">
-                    <h3>{producto.nombreProducto}</h3>
-                    <p>Precio: ${producto.precio}</p>
-                    <button>Añadir al Carrito</button>
-                </div>
+    const handleVerDetalle = (productos) => {
+        setProductoSeleccionado(productos);
+    };
 
+    const handleAnadirCarrito = (productos) =>{
+        alert(`Producto añadido al carrito: ${productos.nombreProducto}`);
+    };
+
+    const cerrarModal = () => {
+        setProductoSeleccionado(null);
+    }; 
+
+
+    return(
+        <div className="relative"> 
+            <div className="contenedor-productos">
+                {productos.map((producto) => (
+                    <ProductCard 
+                    key={producto.idProducto} 
+                    producto = {producto}
+                    onVerDetalle={handleVerDetalle}
+                    onAgregarCarrito={handleAnadirCarrito}/>       
             ))}
+            </div>
 
+            {productoSeleccionado && (
+                <ProductModal producto={productoSeleccionado} onClose={cerrarModal}/>
+            )}
         </div>
+
     );
-};
+
+}
 
 export default ProductList;

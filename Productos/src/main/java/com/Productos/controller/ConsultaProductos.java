@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Productos.dto.ProductosDTO;
 import com.Productos.model.Productos;
 import com.Productos.service.*;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class ConsultaProductos {
     @GetMapping
     public ResponseEntity<?> listaProductos(){
 
-        List<Productos> productos = productoService.buscarTodos();
+        List<ProductosDTO> productos = productoService.buscarTodos();
 
         if(productos.isEmpty()){
             String mensaje = "No existen productos creados";

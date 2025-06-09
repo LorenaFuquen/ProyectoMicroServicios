@@ -39,10 +39,11 @@ public class ProductoService {
     //Busquedas
 
     //Buscar todos los productos
-    public List<Productos> buscarTodos(){
-        return productoRepository.findAll();
+    public List<ProductosDTO> buscarTodos(){
+        List<Productos> productos = productoRepository.findAll();
+        return productos.stream().map(this::convertirADTO).collect(Collectors.toList());
     }
-
+    
     //Buscar producto por ID
     public Productos buscarPorID(Long idProducto){
         return productoRepository.findById(idProducto).orElse(null);

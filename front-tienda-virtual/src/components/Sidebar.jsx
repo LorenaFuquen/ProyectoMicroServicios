@@ -3,20 +3,14 @@ import {Link} from 'react-router-dom';
 import { FaHome, FaBox, FaShoppingCart, FaBars, FaTimes, FaPhone, FaArchive, FaHeart, FaPhoneAlt } from 'react-icons/fa';
 import './Sidebar.css';
 
-const Sidebar = () =>{
-    const [isOpen, setIsOpen] = useState(true); // Permitira abrir y cerrar el menu
-
-    const toogleSidebar = () =>{
-        setIsOpen(!isOpen);
-    };
+const Sidebar = ({ isOpen, toggleSidebar }) => {
     
-
     return (
 
-        <div className={`sidebar ${isOpen ? 'open': 'closed'}`}>
-            <div className="toggle-btn" onClick={toogleSidebar}>
-            <FaBars />
-            </div>
+        <div className={`sidebar ${isOpen ? 'open' : 'collapsed'}`}>
+            <div className="toggle-btn" onClick={toggleSidebar}>
+                <FaBars />
+             </div>
 
             {isOpen && <h2 className="titulo">Tienda virtual</h2>}
 

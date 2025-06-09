@@ -9,8 +9,6 @@ const Home = () => {
     return (
         <div className="container">
             <div className="main-content"></div>
-                <Topbar onSearch = {setSearchTerm} />
-                <h1 className="title">Tienda Virtual de Órdenes</h1>
                 <ProductList />
                 <button className="order-button">Ver Carrito</button>
         </ div>
