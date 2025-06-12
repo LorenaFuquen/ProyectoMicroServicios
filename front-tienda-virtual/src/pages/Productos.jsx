@@ -5,9 +5,15 @@ import "./Productos.css";
 
 const Productos = () =>{
     const [abrirModal, setAbrirModal] = useState(false);
+    const [productos, setProductos] = useState([]);
 
     const toggleModal = () => {
         setAbrirModal(!abrirModal);
+    };
+
+    const handleProductoCreado = (nuevoProducto) => {
+        setProductos((prev) => [...prev, nuevoProducto]);
+        toggleModal();
     };
 
     return (
@@ -19,12 +25,13 @@ const Productos = () =>{
                 </button>
             </div>
 
-            <ProductList />
+            <ProductList productos = {productos} setProductos= {setProductos} />
 
-            {abrirModal && <ProductFormCreate onClose= {toggleModal}/> }
+            {abrirModal && (<ProductFormCreate onClose= {toggleModal}
+            onProductoCreado={handleProductoCreado}
+            /> )}
         </div>
     );
-
 };
 
 export default Productos;
