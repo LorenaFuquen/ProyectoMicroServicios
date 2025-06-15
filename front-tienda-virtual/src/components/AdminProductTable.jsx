@@ -166,6 +166,17 @@ function AdminProductTable(){
                     ))}
                 </tbody>
             </table>
+            {productoSeleccionado && (
+                <AdminProductEditModal
+                    producto={productoSeleccionado}
+                    onClose={cerrarModal}
+                    onSave={guardarActualizacion}
+                    categorias={categorias}
+                    marca={marca}
+                    tipoProducto={tipoProducto}
+                    estado={estado}
+                />
+            )}
         </div>
     );
 }

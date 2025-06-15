@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProductTabs from "../components/ProductTabs";
+import ProductTabs  from "../components/ProductTabs";
 import "./Productos.css";
 
 const Productos = () =>{
