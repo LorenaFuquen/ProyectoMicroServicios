@@ -24,8 +24,12 @@ public class ProductosDTO{
     @NotNull(message = "El ID de la categoria es obligatoria")
     private Long idCategoria;
 
+    private String nombreCategoria;
+
     @NotNull(message = "El ID de la marca es obligatoria")
     private Long idMarca;
+
+    private String nombreMarca;
 
     @NotNull(message = "El ID del estado es obligatorio")
     private Long idEstado;
@@ -34,6 +38,8 @@ public class ProductosDTO{
 
     @NotNull(message = "El ID del tipo de producto es obligatoria")
     private Long idTipo;
+
+    private String nombreTipo;
 
     private String imageBase64;
 
@@ -89,12 +95,28 @@ public class ProductosDTO{
         this.idCategoria = idCategoria;
     }
 
+    public String getNombreCategoria(){
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria){
+        this.nombreCategoria = nombreCategoria;
+    }
+
     public Long getIdMarca(){
         return idMarca;
     }
 
     public void setIdMarca(Long idMarca){
         this.idMarca = idMarca;
+    }
+
+    public String getNombreMarca(){
+        return nombreMarca;
+    }
+
+    public void setNombreMarca(String nombreMarca){
+        this.nombreMarca = nombreMarca;
     }
 
     public Long getIdEstado(){
@@ -122,6 +144,14 @@ public class ProductosDTO{
         this.idTipo = idTipo;
     }
 
+    public String getNombreTipo(){
+        return nombreTipo;
+    }
+
+    public void setNombreTipo(String nombreTipo){
+        this.nombreTipo = nombreTipo;
+    }
+    
     public String getImageBase64(){
         return imageBase64;
     }

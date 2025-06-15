@@ -141,8 +141,25 @@ public class ProductoService {
         ProductosDTO dto = new ProductosDTO();
         dto.setIdProducto(productos.getIdProducto());
         dto.setNombreProducto(productos.getNombreProducto());
+        dto.setDescripcion(productos.getDescripcion());
         dto.setPrecio(productos.getPrecio());
+        dto.setColor(productos.getColor());
         dto.setImageBase64(productos.getImageBase64());
+
+        if (productos.getCategoria() != null){
+            dto.setIdCategoria(productos.getCategoria().getIdCategoria());
+            dto.setNombreCategoria(productos.getCategoria().getNombreCategoria());
+        }
+
+        if (productos.getMarca() != null){
+            dto.setIdMarca(productos.getMarca().getIdMarca());
+            dto.setNombreMarca(productos.getMarca().getNombreMarca());
+        }
+
+        if (productos.getTipoProducto() != null){
+            dto.setIdTipo(productos.getTipoProducto().getIdTipo());
+            dto.setNombreTipo(productos.getTipoProducto().getNombreTipo());
+        }
 
         //Se extrae la información del estado
         if (productos.getEstado() != null){

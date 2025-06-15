@@ -1,0 +1,77 @@
+.product-admin-table-container {
+    padding: 2rem;
+    background: #f9f9f9;
+}
+
+.product-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.product-admin-table th, .product-admin-table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-admin-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.boton-editar {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 17px 6px 17px;
+    margin: 5px 0px 6px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.boton-eliminar {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.boton-editar:hover {
+    background-color: #0056b3;
+}
+
+.boton-eliminar:hover {
+    background-color: #c82333;
+}
+
+.productos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -11px 20px 21px 7px;
+}
+
+.productos-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.boton-nuevo-producto{
+  padding: 10px 25px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.boton-nuevo-producto:hover {
+  background-color: #125ea7;
+}
+
