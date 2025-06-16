@@ -7,7 +7,7 @@ const Topbar = ({ onSearch }) => {
         <div className="topbar">
             <input
                 type="text"
-                placeholder="Buscar productos"
+                placeholder="Busca productos por nombre"
                 className="search-input"
                 onChange={(e) => onSearch(e.target.value)}
             />

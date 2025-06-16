@@ -1,8 +1,11 @@
 import React from "react";
 import "./ProductCard.css";
 import { FaCartShopping, FaRegEye } from "react-icons/fa6";
+import { useCarrito } from "../context/UseCarrito";
 
-function ProductCard({ producto, onVerDetalle, onAgregarCarrito}){
+function ProductCard({ producto, onVerDetalle}){
+
+    const {onAgregarCarrito} = useCarrito();
 
     return(
         <div className="card-producto">
