@@ -57,3 +57,31 @@
   justify-content: space-between;
   margin-top: 20px;
 }
+
+.btn-submit {
+  padding: 12px 40px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn-cancel {
+  padding: 12px 70px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-submit:hover {
+  background-color: #1565c0;
+}
+
+.btn-cancel:hover {
+  background-color: #bdbdbd;
+}

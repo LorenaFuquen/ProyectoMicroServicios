@@ -143,7 +143,7 @@ public class ProductoService {
         dto.setNombreProducto(productos.getNombreProducto());
         dto.setDescripcion(productos.getDescripcion());
         dto.setPrecio(productos.getPrecio());
-        dto.setColor(productos.getColor());
+        dto.setColor(productos.getColor() );
         dto.setImageBase64(productos.getImageBase64());
 
         if (productos.getCategoria() != null){
