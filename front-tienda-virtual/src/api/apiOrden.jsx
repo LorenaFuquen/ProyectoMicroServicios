@@ -1,5 +1,3 @@
-// ordenesApi.js
-
 import axios from "axios";
 
 const APIOrdenes = axios.create({
@@ -10,6 +8,10 @@ export const crearOrden = (ordenData) => {
     console.log("Datos que se enviarán a la API:", ordenData);
     return APIOrdenes.post("/ordenes/crearOrden", ordenData);
 };
+
+export const obtenerOrdenes = () => {
+  return APIOrdenes.get("/ordenes/buscarOrdenes"); 
+}
 
 export const obtenerMedioPago = () => {
   return APIOrdenes.get("/ordenes/buscarMedioPago");
