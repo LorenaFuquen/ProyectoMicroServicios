@@ -11,4 +11,12 @@ export const crearOrden = (ordenData) => {
     return APIOrdenes.post("/ordenes/crearOrden", ordenData);
 };
 
+export const obtenerMedioPago = () => {
+  return APIOrdenes.get("/ordenes/buscarMedioPago");
+};
+
+export const obtenerTipoDocumento = () => {
+  return APIOrdenes.get("/ordenes/buscarTipoDocumento");
+};
+
 export default APIOrdenes;
