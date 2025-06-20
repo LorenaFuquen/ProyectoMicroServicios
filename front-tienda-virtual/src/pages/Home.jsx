@@ -9,7 +9,7 @@ const Home = ({ searchQuery }) => {
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
-        const fetchProductos = async () => {
+        const buscar = async () => {
             try {
                 if (searchQuery && searchQuery.length >=2){
                     const resultados = await fetchProductosPorNombre(searchQuery);
@@ -24,14 +24,13 @@ const Home = ({ searchQuery }) => {
             }
         };
 
-        fetchProductos();
+        buscar();
     }, [searchQuery]);
 
     return (
         <div className="container">
             <div className="main-content"></div>
                 <ProductList productos = {productos}/>
-                <button className="order-button">Ver Carrito</button>
         </ div>
     );
 };

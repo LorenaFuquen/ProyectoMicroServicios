@@ -73,3 +73,14 @@
   max-height: 80vh;
   overflow-y: auto;
 }
+
+.modal-content button {
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

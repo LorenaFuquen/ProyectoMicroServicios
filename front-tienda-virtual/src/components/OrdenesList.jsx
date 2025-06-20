@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import APIOrdenes from "../api/apiOrden";
+import APIOrdenes, {obtenerProductosPorIds} from "../api/apiOrden";
 import "./OrdenesList.css";
 
 const OrdenesList = () => {
   const [ordenes, setOrdenes] = useState([]);
   const [detalleSeleccionado, setDetalleSeleccionado] = useState(null);
+  const [productosDetalle, setProductosDetalle] = useState([]);
+
 
   useEffect(() => {
     cargarOrdenes();
@@ -16,6 +18,16 @@ const OrdenesList = () => {
       setOrdenes(res.data);
     } catch (err) {
       console.error("Error al obtener órdenes:", err);
+    }
+  };
+
+  const abrirDetalle = async (orden) => {
+    try {
+      const resProductos = await obtenerProductosPorIds(orden.idsProductos);
+      setProductosDetalle(resProductos.data);
+      setDetalleSeleccionado(orden);
+    } catch (err) {
+      console.error("Error al obtener productos:", err);
     }
   };
 
@@ -42,7 +54,7 @@ const OrdenesList = () => {
             <p><strong>Cliente:</strong> {orden.persona?.nombrePersona}</p>
 
             <div className="botones-orden">
-              <button onClick={() => setDetalleSeleccionado(orden)}>Ver detalle</button>
+              <button onClick={() => abrirDetalle(orden)}>Ver detalle</button>
               <button onClick={() => eliminarOrden(orden.idOrden)}>Eliminar</button>
             </div>
           </div>
@@ -60,11 +72,12 @@ const OrdenesList = () => {
             <p><strong>Dirección:</strong> {detalleSeleccionado.persona?.direccion}</p>
             <p><strong>Productos:</strong></p>
             <ul>
-              {detalleSeleccionado.idsProductos?.map((idsProducto) => (
-                <li key={idsProducto.idProducto}>{idsProducto.nombreProducto}</li>
+              {productosDetalle.map((producto) => (
+                <li key={producto.idProducto}>
+                    {producto.nombreProducto} - $ {producto.precio}</li>
               ))}
             </ul>
-            <p><strong>Valor total:</strong> {detalleSeleccionado.valorTotal}</p>
+            <p><strong>Valor total:</strong> $ {detalleSeleccionado.valorTotal}</p>
             <button onClick={() => setDetalleSeleccionado(null)}>Cerrar</button>
           </div>
         </div>

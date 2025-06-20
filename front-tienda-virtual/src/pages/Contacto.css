@@ -1,0 +1,18 @@
+.contacto-container {
+  padding: 25px 29px 40px;
+  max-width: 700px;
+  margin: 62px; 
+  background-color: #f7f7f7;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contacto-container h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.contacto-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}

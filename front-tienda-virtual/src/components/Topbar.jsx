@@ -12,7 +12,6 @@ const Topbar = ({ onSearch }) => {
                 onChange={(e) => onSearch(e.target.value)}
             />
             
-            <FaShoppingCart className= "icono-compras"/>
         </div>
 
     );
