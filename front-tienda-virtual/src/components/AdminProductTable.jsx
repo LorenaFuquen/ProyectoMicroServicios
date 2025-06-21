@@ -159,7 +159,7 @@ function AdminProductTable(){
                             <td>{estado[producto.idEstado] || "Cargando..."}</td>
                             <td>
                                 <button className= "boton-editar" onClick = {() => handleEditarProducto(producto)}>Editar</button>
-                                <button className= "boton-eliminar" onClick = {() => handleEliminarProducto(producto.idProducto)}>Eliminar</button>
+                                <button className= "boton-elimina" onClick = {() => handleEliminarProducto(producto.idProducto)}>Eliminar</button>
                             </td>
                         </tr>
                      ):null
