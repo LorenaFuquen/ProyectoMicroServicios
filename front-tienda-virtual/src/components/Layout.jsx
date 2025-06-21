@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
 
-  const passSearch = ['/home','/productos'].includes(location.pathname);
+  const passSearch = ['/','/productos'].includes(location.pathname);
 
   const childrenWithProps = React.Children.map(children, chiild =>
     React.isValidElement(chiild) && passSearch

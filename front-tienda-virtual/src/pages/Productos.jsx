@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import ProductTabs  from "../components/ProductTabs";
 import "./Productos.css";
 
-const Productos = () =>{
+const Productos = ( {searchQuery} ) =>{
 
     return (
         <div className="pagina-productos">
-            <ProductTabs />
+            <ProductTabs searchQuery = {searchQuery}/>
         </div>
     );
 };

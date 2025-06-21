@@ -15,15 +15,13 @@ function App() {
   return (
     <Router>
       <CarritoProvider>
-        <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/productos" element={<Productos />} />
-            <Route path="/carrito" element={<Carrito />} />
-            <Route path="/ordenes" element={<Ordenes />} />
-            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/" element={<Layout><Home /></Layout>} />
+            <Route path="/productos" element={<Layout><Productos /></Layout>} />
+            <Route path="/carrito" element={<Layout><Carrito /></Layout> } />
+            <Route path="/ordenes" element={<Layout><Ordenes /></Layout>} />
+            <Route path="/contacto" element={<Layout><Contacto /></Layout>} />
           </Routes>
-        </Layout>
       </CarritoProvider>
     </Router>
   );

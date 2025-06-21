@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 import AdminProductTable from "./AdminProductTable";
 import "./ProductTabs.css";
 
-const ProductTabs = () => {
+const ProductTabs = ({searchQuery}) => {
   const [activeTab, setActiveTab] = useState("productos"); // 'productos' o 'admin'
 
   return (
@@ -22,7 +22,7 @@ const ProductTabs = () => {
       <div className="tabs-content">
             {activeTab === "productos" && (
             <div>
-                <ProductList />
+                <ProductList searchQuery = {searchQuery}/>
           </div>
         )}
 

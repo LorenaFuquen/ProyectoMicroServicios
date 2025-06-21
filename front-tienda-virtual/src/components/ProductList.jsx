@@ -5,7 +5,7 @@ import API from "../api/api";
 import ProductCard from "./ProductCard";
 import ProductModal from "./ProductModal";
 
-function ProductList(){
+function ProductList( { searchQuery = "" } ){
     const [productos, setProductos] = useState([]);
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
@@ -15,12 +15,16 @@ function ProductList(){
         .catch((error) => console.error("Error al cargar los productos ", error))
     },[]);
 
-    const handleVerDetalle = (productos) => {
-        setProductoSeleccionado(productos);
+    const productosFiltrados = productos.filter(producto =>
+    producto.nombreProducto.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const handleVerDetalle = (producto) => {
+        setProductoSeleccionado(producto);
     };
 
-    const handleAnadirCarrito = (productos) =>{
-        alert(`Producto añadido al carrito: ${productos.nombreProducto}`);
+    const handleAnadirCarrito = (producto) =>{
+        alert(`Producto añadido al carrito: ${producto.nombreProducto}`);
     };
 
     const cerrarModal = () => {
@@ -28,10 +32,12 @@ function ProductList(){
     }; 
 
 
+    console.log("Query recibida:", searchQuery);
+
     return(
         <div className="relative"> 
             <div className="contenedor-productos">
-                {productos.map((producto) => (
+                {productosFiltrados.map((producto) => (
                     <ProductCard 
                     key={producto.idProducto} 
                     producto = {producto}

@@ -30,7 +30,7 @@ const Home = ({ searchQuery }) => {
     return (
         <div className="container">
             <div className="main-content"></div>
-                <ProductList productos = {productos}/>
+                <ProductList productos = {productos} searchQuery={searchQuery}/>
         </ div>
     );
 };
